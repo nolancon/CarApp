@@ -1,18 +1,16 @@
 package edu.tus.car.errors;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.tus.car.model.Car;
-import edu.tus.car.service.CarService;
 
 
 class ErrorValidationTest {
-
-private ErrorValidation errorValidation;
+	private ErrorValidation errorValidation;
 	
 	@BeforeEach
 	public void setUp(){

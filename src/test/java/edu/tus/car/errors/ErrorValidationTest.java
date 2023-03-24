@@ -126,6 +126,10 @@ class ErrorValidationTest {
 		car.setMake("PORSCHE");
 		car.setModel("F40");
 		assertEquals(errorValidation.checkMakeAndModelNotAllowed(car), true);
+		
+		car.setMake("PORSCHE");
+		car.setModel("");
+		assertEquals(errorValidation.checkMakeAndModelNotAllowed(car), true);
 	}
 	
 }

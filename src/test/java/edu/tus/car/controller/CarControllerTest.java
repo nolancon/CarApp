@@ -138,6 +138,7 @@ public class CarControllerTest {
 		andExpect(jsonPath("$.length()", is(0)));
 	}
 	
+	// Helper functions for creating car objects.
 	public Car buildBMW() {
 		Car car = new Car();
 		car.setId((long)1);

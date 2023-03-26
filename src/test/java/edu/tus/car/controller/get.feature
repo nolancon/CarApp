@@ -35,3 +35,26 @@ Scenario: To get all the data from application in JSON format
   }
 ]
 """
+
+Scenario: To get car with ID 1 and compare response.
+    Given path '/api/cars/1'
+    And request
+    When method get # Send the get request
+    Then status 200 # Send the get request
+    And print response
+    And match response == 
+    """
+  {
+    "id": 1,
+    "make": "Mercedes",
+    "model": "E220",
+    "year": 2020,
+    "color": "Black"
+  }
+"""
+
+Scenario: To get car with ID 99, which does not exist .
+    Given path '/api/cars/99'
+    And request
+    When method get # Send the get request
+    Then status 204 # Send the get request

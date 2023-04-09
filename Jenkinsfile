@@ -4,6 +4,16 @@ node {
   }
 
   stage("Compilation") {
-    sudo sh "./compile.sh"
+    mvn clean install -DskipTests
+  }
+
+  stage("Tests and Deployment") {
+    
+    stage("Deployment") {
+      nohup mvn spring-boot:run -Dserver.port=8001 &
+    }
+    stage("Runing unit tests") {
+      mvn test
+    }
   }
 }

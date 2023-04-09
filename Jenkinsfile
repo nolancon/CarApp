@@ -9,7 +9,7 @@ node {
 
   stage("Deploy and Test") {
     stage("Deployment") {
-      nohup mvn spring-boot:run -Dserver.port=8081 &
+      sh "nohup mvn spring-boot:run -Dserver.port=8081 &"
     }
     
     stage("Runing tests") {

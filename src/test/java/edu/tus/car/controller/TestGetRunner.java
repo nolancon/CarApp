@@ -5,7 +5,7 @@ import com.intuit.karate.junit5.Karate.Test;
 
 public class TestGetRunner {
 	
-	@Karate.Test
+	@Test
 	public Karate getAllCars() {
 		return Karate.run("get").relativeTo(getClass());
 	}

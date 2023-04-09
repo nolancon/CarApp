@@ -1,4 +1,4 @@
-Feature:`To test the get endpoint.
+Feature: To test the get endpoint.
 	
 Background: Setup the base path.
 	Given url 'http://localhost:8081'

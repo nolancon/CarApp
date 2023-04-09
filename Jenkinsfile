@@ -4,6 +4,6 @@ node {
   }
 
   stage("Compilation") {
-    sh "./compile.sh"
+    sudo sh "./compile.sh"
   }
 }

@@ -4,16 +4,16 @@ node {
   }
 
   stage("Compilation") {
-    sh 'mvn clean install -DskipTests'
+    sh 'maven clean install -DskipTests'
   }
 
   stage("Deploy and Test") {
     stage("Deployment") {
-      sh 'nohup mvn spring-boot:run -Dserver.port=8081 &'
+      sh 'nohup maven spring-boot:run -Dserver.port=8081 &'
     }
     
     stage("Runing tests") {
-      sh 'mvn test'
+      sh 'maven test'
     }
   }
 }

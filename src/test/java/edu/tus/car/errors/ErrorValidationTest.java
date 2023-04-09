@@ -1,7 +1,6 @@
 package edu.tus.car.errors;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,6 +28,9 @@ class ErrorValidationTest {
 		
 		car.setYear(2021);
 		assertEquals(errorValidation.yearNotOK(car), false);
+		
+		car.setYear(0);
+		assertEquals(errorValidation.yearNotOK(car), true);
 	}
 
 	@Test
@@ -48,7 +50,10 @@ class ErrorValidationTest {
 		assertEquals(errorValidation.colorNotOK(car), false);
 
 		car.setColor("BLUE");
-		assertEquals(errorValidation.colorNotOK(car), true);	
+		assertEquals(errorValidation.colorNotOK(car), true);
+		
+		car.setColor("");
+		assertEquals(errorValidation.colorNotOK(car), true);
 	}
 	
 	@Test
@@ -130,6 +135,16 @@ class ErrorValidationTest {
 		car.setMake("PORSCHE");
 		car.setModel("");
 		assertEquals(errorValidation.checkMakeAndModelNotAllowed(car), true);
+		
+		car.setMake("");
+		car.setModel("F40");
+		assertEquals(errorValidation.checkMakeAndModelNotAllowed(car), true);
+		
+		car.setMake("");
+		car.setModel("");
+		assertEquals(errorValidation.checkMakeAndModelNotAllowed(car), true);
+		
 	}
+	
 	
 }

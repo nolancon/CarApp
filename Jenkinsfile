@@ -4,6 +4,6 @@ node {
   }
 
   stage("Compilation") {
-    bash "./compile.sh"
+    sh "./compile.sh"
   }
 }

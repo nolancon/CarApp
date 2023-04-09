@@ -4,7 +4,7 @@ node {
   }
 
   stage("Compilation") {
-    sh 'maven clean install -DskipTests'
+    sh './mvnw clean install -DskipTests'
   }
 
   stage("Deploy and Test") {

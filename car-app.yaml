@@ -1,5 +1,6 @@
 - hosts: all
   become: true
+  ignore_errors: yes
   
   tasks:
   - name: stop container

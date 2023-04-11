@@ -21,11 +21,11 @@ pipeline {
                 sh "mvn clean install -DskipTests"
             }
         }
-        //stage('Code Analysis') {
-        //    steps {
-        //        sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -Dsonar.login=admin -Dsonar.password=root -Dsonar.host.url=http://63.33.198.194:9000'
-        //    }
-        //}
+        stage('Code Analysis') {
+            steps {
+                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar -Dsonar.login=admin -Dsonar.password=root -Dsonar.host.url=http://63.33.198.194:9000'
+            }
+        }
         stage('Test') {
             steps {
                 sh "nohup java -jar /var/lib/jenkins/workspace/CarAppPipeline/target/SampleCarApp-0.0.1-SNAPSHOT.jar &"
